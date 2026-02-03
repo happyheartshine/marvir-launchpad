@@ -13,7 +13,7 @@ interface LayoutProps {
 }
 
 const defaultMeta = {
-  title: "Marvir Solutions | Consultoría Tech & Outsourcing",
+  title: "Marvir Solutions",
   description: "Consultoría tecnológica, outsourcing de talento tech, RRHH y servicios de broker para empresas. Transformamos tu negocio con datos y tecnología.",
   ogImage: "/og-image.jpg",
   siteUrl: "https://marvirsolutions.com",

@@ -33,13 +33,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 group mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="font-bold text-primary-foreground">M</span>
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight">
-                Marvir<span className="text-primary">Solutions</span>
-              </span>
+            <Link to="/" className="flex items-center gap-3 group mb-4">
+              <img 
+                src="/logo.png" 
+                alt="Marvir Solutions Logo" 
+                className="w-40 h-40 transition-transform group-hover:scale-105"
+              />
+
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-sm">
               Consultoría tech, outsourcing de talento y servicios de broker para empresas que quieren crecer con tecnología.

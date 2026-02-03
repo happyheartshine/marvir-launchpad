@@ -37,14 +37,13 @@ export function Header() {
         <nav className="section-container" aria-label="Global">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="font-bold text-primary-foreground text-sm md:text-base">M</span>
-              </div>
-              <span className="font-display font-bold text-lg md:text-xl tracking-tight">
-                Marvir
-                <span className="text-primary">Solutions</span>
-              </span>
+            <Link to="/" className="flex items-center gap-3 group">
+              <img 
+                src="/logo.png" 
+                alt="Marvir Solutions Logo" 
+                className="w-40 h-40 md:w-40 md:h-40 transition-transform group-hover:scale-105"
+              />
+
             </Link>
 
             {/* Desktop Navigation */}
