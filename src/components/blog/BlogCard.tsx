@@ -15,11 +15,23 @@ export function BlogCard({ post, index = 0, featured = false }: BlogCardProps) {
     <AnimatedCard delay={index * 0.1}>
       <Link to={`/blog/${post.slug}`} className="group block h-full">
         <article className={`h-full glass-card overflow-hidden hover-lift ${featured ? 'md:flex' : ''}`}>
-          {/* Image placeholder */}
-          <div className={`bg-gradient-to-br from-primary/20 to-accent/10 ${featured ? 'md:w-2/5 h-48 md:h-auto' : 'h-48'}`}>
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-4xl opacity-50">📊</div>
-            </div>
+          {/* Image */}
+          <div className={`relative bg-gradient-to-br from-primary/20 to-accent/10 ${featured ? 'md:w-2/5 h-48 md:h-auto' : 'h-48'} overflow-hidden`}>
+            {post.image ? (
+              <img 
+                src={post.image} 
+                alt={post.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+                  alt="Placeholder"
+                  className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
           </div>
           
           {/* Content */}
