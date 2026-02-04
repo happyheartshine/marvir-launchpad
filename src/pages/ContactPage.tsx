@@ -10,6 +10,8 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
+import { ThreeJSBackground } from "@/components/background/ThreeJSBackground";
 
 const contactReasons = [
   { value: "consultoria", label: "Consultoría Tech & Data" },
@@ -84,12 +86,77 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("¡Mensaje enviado! Te contactaremos pronto.");
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+      }
+
+      // Prepare email template parameters
+      const templateParams = {
+        to_email: "krishna19990327@gmail.com",
+        to_name: "Krishna",
+        from_name: formData.name,
+        from_email: formData.email,
+        reason: contactReasons.find(r => r.value === formData.reason)?.label || formData.reason,
+        message: formData.message,
+        plan: formData.plan || "N/A",
+        domain: formData.domain || "N/A",
+        reply_to: formData.email,
+      };
+
+      // Debug: Log parameters (remove in production)
+      console.log("EmailJS Parameters:", {
+        serviceId,
+        templateId,
+        templateParams,
+      });
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      console.log("EmailJS Response:", response);
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast.success("¡Mensaje enviado! Te contactaremos pronto.");
+      
+      // Reset form
+      setFormData({
+        reason: "",
+        name: "",
+        email: "",
+        message: "",
+        plan: "",
+        domain: "",
+      });
+    } catch (error: any) {
+      console.error("Error sending email:", error);
+      console.error("Error details:", {
+        text: error?.text,
+        status: error?.status,
+        message: error?.message,
+      });
+      setIsSubmitting(false);
+      
+      // More specific error messages
+      if (error?.text) {
+        toast.error(`Error: ${error.text}`);
+      } else if (error?.message) {
+        toast.error(`Error: ${error.message}`);
+      } else {
+        toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo o contáctanos directamente.");
+      }
+    }
   };
 
   if (isSubmitted) {
@@ -129,8 +196,9 @@ export default function ContactPage() {
       canonical="/contacto"
     >
       {/* Hero */}
-      <Section variant="hero" className="pt-20 md:pt-32 pb-16">
-        <AnimatedSection className="max-w-3xl mx-auto text-center">
+      <Section variant="hero" className="pt-20 md:pt-32 pb-16 relative overflow-hidden">
+        <ThreeJSBackground />
+        <AnimatedSection className="max-w-3xl mx-auto text-center relative z-10">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
             Contacto
           </span>
