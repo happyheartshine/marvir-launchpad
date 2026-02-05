@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -95,8 +96,9 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden lg:block">
+            {/* Theme Toggle & CTA Button */}
+            <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
               <Button asChild className="glow-sm">
                 <Link to="/contacto">Contactar</Link>
               </Button>
@@ -159,7 +161,11 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 px-4">
+              <div className="pt-4 px-4 space-y-2">
+                <div className="flex items-center justify-between px-4">
+                  <span className="text-sm text-muted-foreground">Tema</span>
+                  <ThemeToggle />
+                </div>
                 <Button asChild className="w-full">
                   <Link to="/contacto" onClick={() => setMobileMenuOpen(false)}>
                     Contactar

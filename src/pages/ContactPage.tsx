@@ -11,7 +11,6 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
-import { ThreeJSBackground } from "@/components/background/ThreeJSBackground";
 
 const contactReasons = [
   { value: "consultoria", label: "Consultoría Tech & Data" },
@@ -196,9 +195,8 @@ export default function ContactPage() {
       canonical="/contacto"
     >
       {/* Hero */}
-      <Section variant="hero" className="pt-20 md:pt-32 pb-16 relative overflow-hidden">
-        <ThreeJSBackground />
-        <AnimatedSection className="max-w-3xl mx-auto text-center relative z-10">
+      <Section variant="hero" className="pt-20 md:pt-32 pb-16" animatedBackground>
+        <AnimatedSection className="max-w-3xl mx-auto text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
             Contacto
           </span>
@@ -213,7 +211,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Form + Info */}
-      <Section>
+      <Section animatedBackground>
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Form */}
           <div className="lg:col-span-3">

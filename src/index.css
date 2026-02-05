@@ -8,7 +8,8 @@
 */
 
 @layer base {
-  :root {
+  :root,
+  .dark {
     /* Core Brand Colors */
     --background: 222 47% 4%;
     --foreground: 210 40% 98%;
@@ -70,6 +71,7 @@
   }
 
   /* Light mode - Tech professional */
+  :root.light,
   .light {
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import { AnimatedCanvasBackground } from "@/components/background";
 
 const sectionVariants = cva("py-16 md:py-24", {
   variants: {
@@ -8,7 +9,7 @@ const sectionVariants = cva("py-16 md:py-24", {
       default: "",
       gradient: "bg-gradient-section",
       dark: "bg-surface-1",
-      hero: "bg-gradient-hero relative overflow-hidden",
+      hero: "relative overflow-hidden",
     },
   },
   defaultVariants: {
@@ -20,12 +21,24 @@ interface SectionProps extends VariantProps<typeof sectionVariants> {
   children: ReactNode;
   className?: string;
   id?: string;
+  animatedBackground?: boolean;
 }
 
-export function Section({ children, variant, className, id }: SectionProps) {
+export function Section({ children, variant, className, id, animatedBackground = false }: SectionProps) {
   return (
-    <section id={id} className={cn(sectionVariants({ variant }), className)}>
-      <div className="section-container">{children}</div>
+    <section 
+      id={id} 
+      className={cn(
+        sectionVariants({ variant }), 
+        animatedBackground && "relative overflow-hidden",
+        !animatedBackground && variant === "hero" && "bg-gradient-hero",
+        className
+      )}
+    >
+      {animatedBackground && <AnimatedCanvasBackground />}
+      <div className={cn("section-container", animatedBackground && "relative z-10")}>
+        {children}
+      </div>
     </section>
   );
 }
