@@ -4,7 +4,7 @@ import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 const footerLinks = {
   servicios: [
     { name: "Consultoría Tech & Data", href: "/servicios/consultoria" },
-    { name: "RRHH & Outsourcing", href: "/servicios/rrhh-outsourcing" },
+    { name: "Selección de Personal y Outsourcing", href: "/servicios/rrhh-outsourcing" },
     { name: "Broker a Empresas", href: "/servicios/broker-empresas" },
     { name: "Dominios", href: "/dominios" },
   ],

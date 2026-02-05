@@ -14,7 +14,7 @@ import emailjs from "@emailjs/browser";
 
 const contactReasons = [
   { value: "consultoria", label: "Consultoría Tech & Data" },
-  { value: "rrhh-outsourcing", label: "RRHH & Outsourcing Tech" },
+  { value: "rrhh-outsourcing", label: "Selección de Personal y Outsourcing" },
   { value: "broker-empresas", label: "Broker a Empresas" },
   { value: "comprar-dominio", label: "Comprar Dominio" },
   { value: "enviar-cv", label: "Enviar CV" },
@@ -68,7 +68,7 @@ export default function ContactPage() {
       setFormData(prev => ({ 
         ...prev, 
         plan,
-        message: prev.message || `Estoy interesado en el plan "${plan}" de RRHH & Outsourcing.`
+        message: prev.message || `Estoy interesado en el plan "${plan}" de Selección de Personal y Outsourcing.`
       }));
     }
     if (domain) {

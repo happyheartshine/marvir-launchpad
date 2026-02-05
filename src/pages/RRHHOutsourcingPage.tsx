@@ -49,7 +49,7 @@ export default function RRHHOutsourcingPage() {
 
   return (
     <Layout
-      title="RRHH & Outsourcing"
+      title="Selección de Personal y Outsourcing"
       description="Selección de personal, outsourcing tech, oficios y gestión administrativa. Soluciones integrales de recursos humanos."
       canonical="/servicios/rrhh-outsourcing"
     >
@@ -61,7 +61,7 @@ export default function RRHHOutsourcingPage() {
               <Icon className="w-8 h-8 text-primary" />
             </div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
-              RRHH & Outsourcing
+              Selección de Personal y Outsourcing
             </span>
             <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6">
               Soluciones integrales de recursos humanos

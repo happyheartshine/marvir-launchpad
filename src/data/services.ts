@@ -39,7 +39,7 @@ export const services: Service[] = [
   {
     id: "rrhh-outsourcing",
     slug: "rrhh-outsourcing",
-    title: "RRHH & Outsourcing Tech",
+    title: "Selección de Personal y Outsourcing",
     shortDescription: "Externaliza la gestión de talento tecnológico con modelos flexibles adaptados a tu empresa.",
     fullDescription: "Nos encargamos de la selección, contratación y gestión de perfiles tecnológicos. Ofrecemos modelos flexibles que se adaptan a las necesidades de tu proyecto: desde contratación por horas hasta equipos dedicados.",
     icon: Users,
