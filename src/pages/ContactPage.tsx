@@ -92,12 +92,6 @@ export default function ContactPage() {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       // Debug: Log environment variables (remove sensitive data in production)
-      console.log("Environment check:", {
-        hasServiceId: !!serviceId,
-        hasTemplateId: !!templateId,
-        hasPublicKey: !!publicKey,
-        envKeys: Object.keys(import.meta.env).filter(key => key.startsWith('VITE_')),
-      });
 
       if (!serviceId || !templateId || !publicKey) {
         const missing = [];
@@ -124,12 +118,6 @@ export default function ContactPage() {
         reply_to: formData.email,
       };
 
-      // Debug: Log parameters (remove in production)
-      console.log("EmailJS Parameters:", {
-        serviceId,
-        templateId,
-        templateParams,
-      });
 
       // Send email using EmailJS
       const response = await emailjs.send(
@@ -139,7 +127,6 @@ export default function ContactPage() {
         publicKey
       );
 
-      console.log("EmailJS Response:", response);
 
       setIsSubmitting(false);
       setIsSubmitted(true);
