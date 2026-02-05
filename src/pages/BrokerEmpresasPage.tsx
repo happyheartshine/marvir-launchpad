@@ -106,17 +106,53 @@ export default function BrokerEmpresasPage() {
       <Section variant="dark">
         <SectionHeader
           title="¿Qué hacemos por ti?"
-          description="Un servicio completo de intermediación tech."
+          description="Un servicio completo de intermediación tech que te ahorra tiempo y reduce riesgos."
         />
         
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {service.features.map((feature, index) => (
             <StaggerItem key={index}>
-              <div className="glass-card p-6 h-full">
+              <div className="glass-card p-6 h-full hover-lift">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <span className="text-primary font-bold">{index + 1}</span>
                 </div>
                 <p className="text-muted-foreground">{feature}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </Section>
+
+      {/* Use Cases */}
+      <Section>
+        <SectionHeader
+          title="Casos de uso comunes"
+          description="Situaciones en las que nuestro servicio de broker puede ayudarte."
+        />
+        
+        <StaggerContainer className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Búsqueda de partners de desarrollo",
+              description: "Necesitas una agencia o equipo freelance para desarrollar tu producto. Nosotros identificamos, evaluamos y te presentamos las mejores opciones del mercado."
+            },
+            {
+              title: "Selección de proveedores SaaS",
+              description: "Buscas una solución tecnológica específica pero hay muchas opciones. Te ayudamos a encontrar la que mejor se adapta a tus necesidades y presupuesto."
+            },
+            {
+              title: "Contratación de infraestructura cloud",
+              description: "Necesitas servicios de hosting, CDN o infraestructura cloud. Conocemos los mejores proveedores y negociamos las mejores condiciones."
+            },
+            {
+              title: "Asesoramiento en M&A tech",
+              description: "Estás considerando adquirir o fusionar con una empresa tech. Te asesoramos en la evaluación técnica y estratégica del proceso."
+            }
+          ].map((item, index) => (
+            <StaggerItem key={index}>
+              <div className="glass-card p-6 h-full">
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
               </div>
             </StaggerItem>
           ))}

@@ -1,4 +1,4 @@
-import { Briefcase, Users, Building2, Globe } from "lucide-react";
+import { Briefcase, Users, Building2, Globe, TrendingUp, Scale } from "lucide-react";
 
 export interface Service {
   id: string;
@@ -104,6 +104,52 @@ export const services: Service[] = [
       "Precios competitivos"
     ],
     cta: "Ver dominios"
+  },
+  {
+    id: "marketing-digital",
+    slug: "marketing-digital",
+    title: "Marketing Digital",
+    shortDescription: "Posicionamiento web, branding y geolocalización. Servicios integrales de marketing digital.",
+    fullDescription: "Haz crecer tu negocio online con nuestros servicios de marketing digital. Posicionamiento web (SEO), branding completo y geolocalización para aumentar tu visibilidad y atraer más clientes.",
+    icon: TrendingUp,
+    features: [
+      "SEO local y nacional",
+      "Auditorías SEO completas",
+      "Identidad de marca y naming",
+      "Google Business Profile",
+      "Posicionamiento local",
+      "Estrategia de marca integral"
+    ],
+    benefits: [
+      "Mayor visibilidad online",
+      "Más tráfico cualificado",
+      "Marca diferenciada",
+      "ROI medible"
+    ],
+    cta: "Solicitar consulta"
+  },
+  {
+    id: "asesoramiento-legal",
+    slug: "asesoramiento-legal",
+    title: "Asesoramiento Legal",
+    shortDescription: "RGPD, extranjería y gestoría para autónomos. Servicios legales y administrativos especializados.",
+    fullDescription: "Servicios legales y administrativos especializados: adaptación RGPD y protección de datos, trámites de extranjería (nacionalidad, residencia, pareja de hecho) y gestoría completa para autónomos.",
+    icon: Scale,
+    features: [
+      "Adaptación RGPD y DPO externo",
+      "Auditorías de protección de datos",
+      "Trámites de extranjería",
+      "Gestoría para autónomos",
+      "Asesoramiento fiscal",
+      "Cumplimiento normativo"
+    ],
+    benefits: [
+      "Cumplimiento normativo garantizado",
+      "Ahorro de tiempo y recursos",
+      "Reducción de riesgos",
+      "Tranquilidad"
+    ],
+    cta: "Solicitar consulta"
   }
 ];
 

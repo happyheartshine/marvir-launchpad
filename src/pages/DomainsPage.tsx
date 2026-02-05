@@ -1,12 +1,13 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, Globe, ArrowRight, Tag } from "lucide-react";
+import { Search, Globe, ArrowRight, Tag, Shield, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Badge } from "@/components/ui/badge";
 import { Layout } from "@/components/layout";
+import { FAQ } from "@/components/ui/faq";
 import { domains, domainCategories, type Domain } from "@/data/domains";
 import { cn } from "@/lib/utils";
 
@@ -188,6 +189,91 @@ export default function DomainsPage() {
             </Button>
           </div>
         )}
+      </Section>
+
+      {/* Why Premium Domains */}
+      <Section variant="dark">
+        <SectionHeader
+          title="¿Por qué comprar un dominio premium?"
+          description="Los dominios premium ofrecen ventajas estratégicas para tu negocio digital."
+        />
+        
+        <StaggerContainer className="grid md:grid-cols-3 gap-6">
+          <StaggerItem>
+            <div className="glass-card p-6 h-full">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Mayor autoridad y confianza</h3>
+              <p className="text-muted-foreground text-sm">
+                Un dominio premium transmite profesionalidad y seriedad, aumentando la confianza de tus clientes y mejorando tu imagen de marca.
+              </p>
+            </div>
+          </StaggerItem>
+          
+          <StaggerItem>
+            <div className="glass-card p-6 h-full">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Mejor posicionamiento SEO</h3>
+              <p className="text-muted-foreground text-sm">
+                Los dominios premium suelen tener mejor historial y autoridad, lo que favorece tu posicionamiento en buscadores desde el inicio.
+              </p>
+            </div>
+          </StaggerItem>
+          
+          <StaggerItem>
+            <div className="glass-card p-6 h-full">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <Star className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Inversión de valor</h3>
+              <p className="text-muted-foreground text-sm">
+                Un dominio premium es una inversión que puede aumentar su valor con el tiempo, especialmente si construyes una marca sólida.
+              </p>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
+      </Section>
+
+      {/* FAQ */}
+      <Section>
+        <SectionHeader
+          title="Preguntas frecuentes"
+          description="Resolvemos tus dudas sobre la compra de dominios premium."
+        />
+        
+        <AnimatedSection className="max-w-3xl mx-auto">
+          <FAQ
+            items={[
+              {
+                question: "¿Qué incluye la compra de un dominio premium?",
+                answer: "La compra incluye la transferencia segura del dominio a tu nombre, el cambio de registrador si es necesario, y el soporte durante todo el proceso. También te ayudamos con la configuración inicial si lo necesitas."
+              },
+              {
+                question: "¿Cómo se realiza la transferencia del dominio?",
+                answer: "La transferencia se realiza de forma segura siguiendo los protocolos estándar de ICANN. Te guiamos paso a paso y nos encargamos de toda la documentación necesaria. El proceso suele tardar entre 5-7 días hábiles."
+              },
+              {
+                question: "¿Puedo comprar un dominio que ya está en uso?",
+                answer: "Sí, algunos dominios están disponibles para compra aunque estén en uso. En estos casos, negociamos con el propietario actual. Si el dominio está disponible directamente, la transferencia es más rápida."
+              },
+              {
+                question: "¿Qué garantías tengo al comprar un dominio premium?",
+                answer: "Garantizamos la transferencia segura y legal del dominio, la autenticidad del mismo, y que no tiene deudas o problemas pendientes. Todos nuestros dominios pasan por un proceso de verificación antes de ser ofrecidos."
+              },
+              {
+                question: "¿Ofrecen servicios de protección de marca?",
+                answer: "Sí, además de la venta de dominios, ofrecemos servicios de naming, búsqueda de dominios relacionados, y asesoramiento para proteger tu marca digital de forma integral."
+              },
+              {
+                question: "¿Puedo pagar en cuotas?",
+                answer: "Para dominios premium de alto valor, ofrecemos opciones de financiación. Contacta con nosotros para conocer las condiciones específicas según el dominio que te interese."
+              }
+            ]}
+          />
+        </AnimatedSection>
       </Section>
 
       {/* CTA */}

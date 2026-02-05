@@ -10,6 +10,8 @@ import ConsultoriaPage from "./pages/ConsultoriaPage";
 import RRHHOutsourcingPage from "./pages/RRHHOutsourcingPage";
 import BrokerEmpresasPage from "./pages/BrokerEmpresasPage";
 import DomainsPage from "./pages/DomainsPage";
+import MarketingDigitalPage from "./pages/MarketingDigitalPage";
+import AsesoramientoLegalPage from "./pages/AsesoramientoLegalPage";
 import JobsPage from "./pages/JobsPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/servicios/consultoria" element={<ConsultoriaPage />} />
           <Route path="/servicios/rrhh-outsourcing" element={<RRHHOutsourcingPage />} />
           <Route path="/servicios/broker-empresas" element={<BrokerEmpresasPage />} />
+          <Route path="/servicios/marketing-digital" element={<MarketingDigitalPage />} />
+          <Route path="/servicios/asesoramiento-legal" element={<AsesoramientoLegalPage />} />
           <Route path="/dominios" element={<DomainsPage />} />
           <Route path="/trabaja-con-nosotros" element={<JobsPage />} />
           <Route path="/blog" element={<BlogPage />} />

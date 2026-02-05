@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Target, Zap, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
@@ -75,8 +75,49 @@ export default function ConsultoriaPage() {
         </div>
       </Section>
 
-      {/* Who is it for */}
+      {/* Process */}
       <Section variant="dark">
+        <SectionHeader
+          title="Nuestro proceso"
+          description="Metodología probada para garantizar el éxito de tu transformación digital."
+        />
+        
+        <StaggerContainer className="grid md:grid-cols-3 gap-6">
+          {[
+            { 
+              icon: Target, 
+              title: "Diagnóstico", 
+              description: "Analizamos tu situación actual, identificamos oportunidades y definimos objetivos claros." 
+            },
+            { 
+              icon: Zap, 
+              title: "Estrategia", 
+              description: "Diseñamos un plan personalizado con arquitectura, tecnologías y roadmap de implementación." 
+            },
+            { 
+              icon: TrendingUp, 
+              title: "Implementación", 
+              description: "Ejecutamos la solución con seguimiento continuo y ajustes para maximizar resultados." 
+            },
+          ].map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <StaggerItem key={index}>
+                <div className="glass-card p-6 h-full text-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </Section>
+
+      {/* Who is it for */}
+      <Section>
         <SectionHeader
           title="¿Para quién es?"
           description="Nuestros servicios de consultoría están diseñados para diferentes perfiles."
