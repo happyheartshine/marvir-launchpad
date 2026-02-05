@@ -91,8 +91,24 @@ export default function ContactPage() {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+      // Debug: Log environment variables (remove sensitive data in production)
+      console.log("Environment check:", {
+        hasServiceId: !!serviceId,
+        hasTemplateId: !!templateId,
+        hasPublicKey: !!publicKey,
+        envKeys: Object.keys(import.meta.env).filter(key => key.startsWith('VITE_')),
+      });
+
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+        const missing = [];
+        if (!serviceId) missing.push("VITE_EMAILJS_SERVICE_ID");
+        if (!templateId) missing.push("VITE_EMAILJS_TEMPLATE_ID");
+        if (!publicKey) missing.push("VITE_EMAILJS_PUBLIC_KEY");
+        
+        throw new Error(
+          `EmailJS configuration is missing. Missing variables: ${missing.join(", ")}. ` +
+          `Please check your Vercel environment variables. They must be prefixed with VITE_ and set for Production environment.`
+        );
       }
 
       // Prepare email template parameters
