@@ -105,14 +105,22 @@ export default function AsesoramientoLegalPage() {
             const Icon = service.icon;
             return (
               <StaggerItem key={service.id}>
-                <div className="glass-card p-8 md:p-10">
-                  <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div className="glass-card p-8 md:p-10 group relative overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+                  
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  </div>
+
+                  <div className="relative grid md:grid-cols-2 gap-8 lg:gap-12">
                     <div>
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-8 h-8 text-primary" />
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                          <Icon className="w-8 h-8 text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
                         </div>
-                        <h2 className="font-display font-bold text-2xl md:text-3xl">
+                        <h2 className="font-display font-bold text-2xl md:text-3xl group-hover:text-primary transition-colors duration-300">
                           {service.title}
                         </h2>
                       </div>
@@ -134,9 +142,9 @@ export default function AsesoramientoLegalPage() {
                       <h3 className="font-semibold text-lg mb-4">Beneficios clave</h3>
                       <div className="space-y-3">
                         {service.benefits.map((benefit, bIndex) => (
-                          <div key={bIndex} className="glass-card p-4 bg-accent/5">
+                          <div key={bIndex} className="glass-card p-4 bg-accent/5 group-hover:scale-105 transition-transform duration-300">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                              <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <span className="text-accent font-bold text-sm">{bIndex + 1}</span>
                               </div>
                               <span className="font-medium">{benefit}</span>
@@ -176,9 +184,13 @@ export default function AsesoramientoLegalPage() {
             }
           ].map((item, index) => (
             <StaggerItem key={index}>
-              <div className="glass-card p-6 h-full text-center">
-                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+              <div className="glass-card p-6 h-full text-center group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+                <div className="relative">
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
               </div>
             </StaggerItem>
           ))}

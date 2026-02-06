@@ -27,44 +27,52 @@ function DomainCard({ domain, index }: { domain: Domain; index: number }) {
   return (
     <StaggerItem>
       <div className={cn(
-        "glass-card p-4 md:p-6 hover-lift group",
+        "glass-card p-4 md:p-6 group relative overflow-hidden transition-all duration-300",
+        "hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20",
+        "hover:border-primary/50 hover:-translate-y-1",
         domain.featured && "border-primary/30"
       )}>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+        
+        {/* Shine effect on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        </div>
+
+        <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
           {/* Domain name */}
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
-              <Globe className="w-4 h-4 text-primary" />
-              <span className="font-display font-semibold text-lg group-hover:text-primary transition-colors">
+              <Globe className="w-4 h-4 text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+              <span className="font-display font-semibold text-lg group-hover:text-primary transition-colors duration-300">
                 {domain.name}
               </span>
               {domain.featured && (
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-xs group-hover:scale-105 transition-transform duration-300">
                   Destacado
                 </Badge>
               )}
             </div>
             <div className="flex items-center gap-2">
-              <Badge variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs group-hover:border-primary/50 transition-colors duration-300">
                 {domain.category}
               </Badge>
-              <Badge className={cn("text-xs", statusStyles[domain.status])}>
+              <Badge className={cn("text-xs transition-all duration-300", statusStyles[domain.status], "group-hover:scale-105")}>
                 {statusLabels[domain.status]}
               </Badge>
             </div>
           </div>
 
-          {/* Price */}
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <div className="text-sm text-muted-foreground">Precio</div>
-              <div className="font-display font-bold text-lg text-primary">
-                {domain.price}
-              </div>
-            </div>
-            <Button size="sm" asChild>
+          {/* CTA Button */}
+          <div className="flex items-center">
+            <Button 
+              size="sm" 
+              asChild
+              className="group-hover:glow-primary transition-all duration-300 group-hover:scale-105"
+            >
               <Link to={`/contacto?reason=comprar-dominio&domain=${domain.name}`}>
-                {domain.status === "negotiable" ? "Consultar" : "Comprar"}
+                {domain.status === "negotiable" ? "Consultar" : "Consultar precio"}
               </Link>
             </Button>
           </div>
@@ -200,38 +208,50 @@ export default function DomainsPage() {
         
         <StaggerContainer className="grid md:grid-cols-3 gap-6">
           <StaggerItem>
-            <div className="glass-card p-6 h-full">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-primary" />
+            <div className="glass-card p-6 h-full group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <Shield className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">Mayor autoridad y confianza</h3>
+                <p className="text-muted-foreground text-sm">
+                  Un dominio premium transmite profesionalidad y seriedad, aumentando la confianza de tus clientes y mejorando tu imagen de marca.
+                </p>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Mayor autoridad y confianza</h3>
-              <p className="text-muted-foreground text-sm">
-                Un dominio premium transmite profesionalidad y seriedad, aumentando la confianza de tus clientes y mejorando tu imagen de marca.
-              </p>
             </div>
           </StaggerItem>
           
           <StaggerItem>
-            <div className="glass-card p-6 h-full">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-primary" />
+            <div className="glass-card p-6 h-full group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <TrendingUp className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">Mejor posicionamiento SEO</h3>
+                <p className="text-muted-foreground text-sm">
+                  Los dominios premium suelen tener mejor historial y autoridad, lo que favorece tu posicionamiento en buscadores desde el inicio.
+                </p>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Mejor posicionamiento SEO</h3>
-              <p className="text-muted-foreground text-sm">
-                Los dominios premium suelen tener mejor historial y autoridad, lo que favorece tu posicionamiento en buscadores desde el inicio.
-              </p>
             </div>
           </StaggerItem>
           
           <StaggerItem>
-            <div className="glass-card p-6 h-full">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-primary" />
+            <div className="glass-card p-6 h-full group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <Star className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">Inversión de valor</h3>
+                <p className="text-muted-foreground text-sm">
+                  Un dominio premium es una inversión que puede aumentar su valor con el tiempo, especialmente si construyes una marca sólida.
+                </p>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Inversión de valor</h3>
-              <p className="text-muted-foreground text-sm">
-                Un dominio premium es una inversión que puede aumentar su valor con el tiempo, especialmente si construyes una marca sólida.
-              </p>
             </div>
           </StaggerItem>
         </StaggerContainer>

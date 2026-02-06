@@ -6,6 +6,8 @@ const footerLinks = {
     { name: "Consultoría Tech & Data", href: "/servicios/consultoria" },
     { name: "Selección de Personal y Outsourcing", href: "/servicios/rrhh-outsourcing" },
     { name: "Broker a Empresas", href: "/servicios/broker-empresas" },
+    { name: "Marketing Digital", href: "/servicios/marketing-digital" },
+    { name: "Asesoramiento Legal", href: "/servicios/asesoramiento-legal" },
     { name: "Dominios", href: "/dominios" },
   ],
   empresa: [

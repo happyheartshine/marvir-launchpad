@@ -112,11 +112,15 @@ export default function BrokerEmpresasPage() {
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {service.features.map((feature, index) => (
             <StaggerItem key={index}>
-              <div className="glass-card p-6 h-full hover-lift">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <span className="text-primary font-bold">{index + 1}</span>
+              <div className="glass-card p-6 h-full group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <span className="text-primary font-bold group-hover:scale-110 transition-transform duration-300">{index + 1}</span>
+                  </div>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{feature}</p>
                 </div>
-                <p className="text-muted-foreground">{feature}</p>
               </div>
             </StaggerItem>
           ))}
@@ -150,9 +154,13 @@ export default function BrokerEmpresasPage() {
             }
           ].map((item, index) => (
             <StaggerItem key={index}>
-              <div className="glass-card p-6 h-full">
-                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+              <div className="glass-card p-6 h-full group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/3 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
+                <div className="relative">
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
               </div>
             </StaggerItem>
           ))}
