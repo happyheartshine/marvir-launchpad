@@ -5,6 +5,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
 import { services } from "@/data/services";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 
 export default function BrokerEmpresasPage() {
   const service = services.find(s => s.id === "broker-empresas")!;
@@ -34,6 +35,19 @@ export default function BrokerEmpresasPage() {
       description={service.fullDescription}
       canonical="/servicios/broker-empresas"
     >
+      <ServiceSchema
+        name={service.title}
+        description={service.fullDescription}
+        url="https://marvirsolutions.com/servicios/broker-empresas"
+        serviceType="Broker de Empresas"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Servicios", url: "/servicios" },
+          { name: "Broker a Empresas", url: "/servicios/broker-empresas" },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-16">
         <div className="max-w-4xl mx-auto">

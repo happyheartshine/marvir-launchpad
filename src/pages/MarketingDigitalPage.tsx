@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 
 export default function MarketingDigitalPage() {
   const services = [
@@ -75,6 +76,19 @@ export default function MarketingDigitalPage() {
       description="Posicionamiento web, branding y geolocalización. Servicios integrales de marketing digital para hacer crecer tu negocio."
       canonical="/servicios/marketing-digital"
     >
+      <ServiceSchema
+        name="Marketing Digital"
+        description="Posicionamiento web, branding y geolocalización. Servicios integrales de marketing digital para hacer crecer tu negocio."
+        url="https://marvirsolutions.com/servicios/marketing-digital"
+        serviceType="Marketing Digital"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Servicios", url: "/servicios" },
+          { name: "Marketing Digital", url: "/servicios/marketing-digital" },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-16">
         <div className="max-w-4xl mx-auto">

@@ -9,6 +9,7 @@ import { Layout } from "@/components/layout";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts, blogCategories, type BlogPost } from "@/data/blog";
 import { toast } from "sonner";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/seo";
 
 function BlogIndex() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
@@ -145,12 +146,34 @@ function BlogPostPage({ post }: { post: BlogPost }) {
     .filter(p => p.id !== post.id && p.category === post.category)
     .slice(0, 3);
 
+  const imageUrl = post.image 
+    ? (post.image.startsWith("http") ? post.image : `https://marvirsolutions.com${post.image}`)
+    : undefined;
+
   return (
     <Layout
       title={post.title}
       description={post.excerpt}
       canonical={`/blog/${post.slug}`}
     >
+      <ArticleSchema
+        headline={post.title}
+        description={post.excerpt}
+        image={imageUrl}
+        datePublished={post.publishedAt}
+        dateModified={post.publishedAt}
+        author={{
+          name: post.author,
+        }}
+        url={`https://marvirsolutions.com/blog/${post.slug}`}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: post.title, url: `/blog/${post.slug}` },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-8">
         <div className="max-w-3xl mx-auto">

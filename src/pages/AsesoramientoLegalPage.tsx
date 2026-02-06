@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 
 export default function AsesoramientoLegalPage() {
   const services = [
@@ -75,6 +76,19 @@ export default function AsesoramientoLegalPage() {
       description="RGPD y protección de datos, extranjería y gestoría para autónomos. Servicios legales y administrativos especializados."
       canonical="/servicios/asesoramiento-legal"
     >
+      <ServiceSchema
+        name="Asesoramiento Legal"
+        description="RGPD y protección de datos, extranjería y gestoría para autónomos. Servicios legales y administrativos especializados."
+        url="https://marvirsolutions.com/servicios/asesoramiento-legal"
+        serviceType="Asesoramiento Legal"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Servicios", url: "/servicios" },
+          { name: "Asesoramiento Legal", url: "/servicios/asesoramiento-legal" },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-16">
         <div className="max-w-4xl mx-auto">

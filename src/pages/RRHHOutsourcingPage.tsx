@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Layout } from "@/components/layout";
 import { services, rrhhPricingModes } from "@/data/services";
 import { cn } from "@/lib/utils";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 
 export default function RRHHOutsourcingPage() {
   const service = services.find(s => s.id === "rrhh-outsourcing")!;
@@ -53,6 +54,19 @@ export default function RRHHOutsourcingPage() {
       description="Selección de personal, outsourcing tech, oficios y gestión administrativa. Soluciones integrales de recursos humanos."
       canonical="/servicios/rrhh-outsourcing"
     >
+      <ServiceSchema
+        name={service.title}
+        description={service.fullDescription}
+        url="https://marvirsolutions.com/servicios/rrhh-outsourcing"
+        serviceType="Recursos Humanos y Outsourcing"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Servicios", url: "/servicios" },
+          { name: "RRHH y Outsourcing", url: "/servicios/rrhh-outsourcing" },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-16">
         <div className="max-w-4xl mx-auto">

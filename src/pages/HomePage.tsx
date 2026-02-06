@@ -10,6 +10,7 @@ import { Layout } from "@/components/layout";
 import { services } from "@/data/services";
 import { blogPosts } from "@/data/blog";
 import { AnimatedCanvasBackground } from "@/components/background/AnimatedCanvasBackground";
+import { OrganizationSchema } from "@/components/seo";
 
 const stats = [
   { value: "50+", label: "Clientes activos" },
@@ -46,6 +47,12 @@ export default function HomePage() {
       canonical="/"
       description="Marvir Solutions: Consultoría tech, outsourcing de talento tecnológico, RRHH y servicios de broker para empresas. Transformamos tu negocio con datos y tecnología."
     >
+      <OrganizationSchema
+        contactPoint={{
+          contactType: "customer service",
+          email: "info@marvirsolutions.com",
+        }}
+      />
       {/* Hero Section */}
       <Section variant="hero" className="pt-20 md:pt-32 lg:pt-40 pb-16 md:pb-24 relative overflow-hidden">
         {/* Canvas Background */}

@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Layout } from "@/components/layout";
 
 const NotFound = () => {
   const location = useLocation();
@@ -11,7 +12,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
+    <Layout
+      title="404 - Página no encontrada"
+      description="La página que buscas no existe o ha sido movida."
+      noIndex
+    >
+      <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
       <div className="text-center px-4">
         <div className="text-8xl md:text-9xl font-display font-bold gradient-text mb-4">404</div>
         <h1 className="text-2xl md:text-3xl font-display font-bold mb-4">Página no encontrada</h1>
@@ -31,7 +37,8 @@ const NotFound = () => {
           </Button>
         </div>
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 };
 

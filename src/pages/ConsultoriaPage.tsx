@@ -5,6 +5,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Layout } from "@/components/layout";
 import { services } from "@/data/services";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/seo";
 
 export default function ConsultoriaPage() {
   const service = services.find(s => s.id === "consultoria")!;
@@ -16,6 +17,19 @@ export default function ConsultoriaPage() {
       description={service.fullDescription}
       canonical="/servicios/consultoria"
     >
+      <ServiceSchema
+        name={service.title}
+        description={service.fullDescription}
+        url="https://marvirsolutions.com/servicios/consultoria"
+        serviceType="Consultoría Tecnológica"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Servicios", url: "/servicios" },
+          { name: "Consultoría Tech & Data", url: "/servicios/consultoria" },
+        ]}
+      />
       {/* Hero */}
       <Section variant="hero" className="pt-20 md:pt-32 pb-16">
         <div className="max-w-4xl mx-auto">
