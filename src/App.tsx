@@ -15,6 +15,8 @@ import AsesoramientoLegalPage from "./pages/AsesoramientoLegalPage";
 import JobsPage from "./pages/JobsPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
+import CookiesPage from "./pages/CookiesPage";
+import PrivacidadPage from "./pages/PrivacidadPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +41,8 @@ const App = () => (
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
           <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/legal/cookies" element={<CookiesPage />} />
+          <Route path="/legal/privacidad" element={<PrivacidadPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

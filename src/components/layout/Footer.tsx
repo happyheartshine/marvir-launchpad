@@ -25,7 +25,7 @@ const footerLinks = {
 const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
   { name: "Twitter", href: "https://twitter.com", icon: Twitter },
-  { name: "Email", href: "mailto:info@marvirsolutions.com", icon: Mail },
+  { name: "Email", href: "marvirsolutions@gmail.com", icon: Mail },
 ];
 
 export function Footer() {
@@ -55,11 +55,11 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+34 900 000 000</span>
+                <span>+34 603 243 318</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>info@marvirsolutions.com</span>
+                <span>marvirsolutions@gmail.com</span>
               </div>
             </div>
 

@@ -188,7 +188,7 @@ function CVForm() {
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="phone">Teléfono *</Label>
-          <Input id="phone" name="phone" type="tel" required placeholder="+34 600 000 000" />
+          <Input id="phone" name="phone" type="tel" required placeholder="+34 603 243 318" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="linkedin">LinkedIn (opcional)</Label>

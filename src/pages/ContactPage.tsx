@@ -25,13 +25,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "info@marvirsolutions.com",
-    href: "mailto:info@marvirsolutions.com",
+    value: "marvirsolutions@gmail.com",
+    href: "mailto:marvirsolutions@gmail.com",
   },
   {
     icon: Phone,
     title: "Teléfono",
-    value: "+34 900 000 000",
+    value: "+34 603 243 318",
     href: "tel:+34900000000",
   },
   {
