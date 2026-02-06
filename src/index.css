@@ -131,6 +131,11 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    cursor: none;
+  }
+
+  * {
+    cursor: none !important;
   }
 
   /* Custom scrollbar for dark theme */
@@ -175,6 +180,20 @@
 
   .glow-sm {
     box-shadow: 0 0 20px -5px hsl(var(--glow-primary) / 0.3);
+  }
+
+  .lightning-path {
+    opacity: 0.9;
+    animation: lightningFlicker 0.15s infinite;
+  }
+
+  @keyframes lightningFlicker {
+    0%, 100% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.6;
+    }
   }
 
   /* Hover lift effect */
